@@ -1,7 +1,7 @@
-from turtle import width
-from altair import Padding
-from pygments import highlight
+from email.mime import image
+import os
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -42,11 +42,33 @@ with col2:
         connect with me on LinkedIn!
         """
     st.write(content, width=800)
+
 # Create another set of columns below the first set
-
-
 content2 = """ 
     Below you will find some of the apps I have built in Python. 
     Feel free to contact me!
     """
 st.info(content2)
+
+col3, col4 = st.columns(2)
+
+df = pd.read_csv("data.csv", sep=";")
+images_dir = "images"  # Directory where images are stored
+
+# Iterate over the first 10 rows for column 3
+for index, row in df.head(10).iterrows():
+    with col3:
+        st.header(row["title"])
+        # Construct full image path
+        image_path = os.path.join(images_dir, row["image"])
+        st.image(image_path, width=200)
+        st.write(row[2])  # Access description from data.csv row 2
+
+# Iterate over the remaining rows for column 4
+for index, row in df.tail(10).iterrows():
+    with col4:
+        st.header(row["title"])  # Move this line inside col4 context manager
+        # Construct full image path
+        image_path = os.path.join(images_dir, row["image"])
+        st.image(image_path, width=200)
+        st.write(row[2])  # Assuming description is in the 4th column (index 3)
