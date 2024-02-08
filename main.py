@@ -3,6 +3,7 @@ import os
 import streamlit as st
 import pandas as pd
 
+
 st.set_page_config(layout="wide")
 
 col1, col2 = st.columns(2)
@@ -50,25 +51,29 @@ content2 = """
     """
 st.info(content2)
 
-col3, col4 = st.columns(2)
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
 df = pd.read_csv("data.csv", sep=";")
 images_dir = "images"  # Directory where images are stored
 
 # Iterate over the first 10 rows for column 3
-for index, row in df.head(10).iterrows():
+for index, row in df[:10].iterrows():
     with col3:
         st.header(row["title"])
+        st.write(row["description"])  # Access description from data.csv
         # Construct full image path
         image_path = os.path.join(images_dir, row["image"])
-        st.image(image_path, width=200)
-        st.write(row[2])  # Access description from data.csv row 2
+        st.image(image_path, width=300)
+        st.write(f"[Source Code]({row['url']})")
+
 
 # Iterate over the remaining rows for column 4
-for index, row in df.tail(10).iterrows():
+for index, row in df[10:].iterrows():
     with col4:
         st.header(row["title"])  # Move this line inside col4 context manager
+        # Assuming description is in the 4th column
+        st.write(row["description"])
         # Construct full image path
         image_path = os.path.join(images_dir, row["image"])
-        st.image(image_path, width=200)
-        st.write(row[2])  # Assuming description is in the 4th column (index 3)
+        st.image(image_path, width=300)
+        st.write(f"[Source Code]({row['url']})")
