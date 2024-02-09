@@ -1,4 +1,3 @@
-from email.mime import image
 import os
 import streamlit as st
 import pandas as pd
@@ -42,7 +41,7 @@ with col2:
         I'd love to connect. Feel free to reach out via email or 
         connect with me on LinkedIn!
         """
-    st.write(content, width=800)
+    st.write(content)
 
 # Create another set of columns below the first set
 content2 = """ 
