@@ -53,7 +53,7 @@ st.info(content2)
 col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
 
 df = pd.read_csv("data.csv", sep=";")
-images_dir = "images"  # Directory where images are stored
+images_dir = "./images"  # Directory where images are stored
 
 # Iterate over the first 10 rows for column 3
 for index, row in df[:10].iterrows():
