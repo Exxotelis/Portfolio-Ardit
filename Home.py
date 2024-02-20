@@ -70,9 +70,20 @@ for index, row in df[:10].iterrows():
 for index, row in df[10:].iterrows():
     with col4:
         st.header(row["title"])  # Move this line inside col4 context manager
-        # Assuming description is in the 4th column
+
         st.write(row["description"])
         # Construct full image path
         image_path = os.path.join(images_dir, row["image"])
         st.image(image_path, width=300)
         st.write(f"[Source Code]({row['url']})")
+st.divider()
+st.markdown("""
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <div style="font-size: 24px;">
+        <a href="#" class="fab fa-facebook"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-youtube"></a>
+    </div>
+    """, unsafe_allow_html=True)
