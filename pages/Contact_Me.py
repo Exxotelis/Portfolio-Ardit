@@ -3,6 +3,8 @@ from email import message
 import streamlit as st
 from send_email import send_email
 
+st.set_page_config(page_title="Contact Me",
+                   page_icon="images/favicon.png", layout="centered")
 st.header("Contact Me")
 
 with st.form(key="email_forms"):
@@ -24,7 +26,7 @@ with col4:
         <div style="font-size: 24px;">
             <a href="#" class="fab fa-facebook"></a>
             <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
+            <a href="https://github.com/Exxotelis" class="fab fa-github"></a>
             <a href="https://www.linkedin.com/in/lefteris-kapsalidis-8360412a6/" class="fab fa-linkedin"></a>
             <a href="#" class="fab fa-youtube"></a>
         </div>
