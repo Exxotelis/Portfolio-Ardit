@@ -2,14 +2,17 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 import ssl
+from dotenv import load_dotenv
 import os
+
+load_dotenv()
 
 
 def send_email(user_name, user_email, message):
     host = "smtp.gmail.com"
     port = 465
     username = f"{user_name}"
-    password = os.getenv("PASSWORD")
+    password = os.environ.get("PASSWORD")
 
     context = ssl.create_default_context()
     receiver = "exxotelis@gmail.com"
