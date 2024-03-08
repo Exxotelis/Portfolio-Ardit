@@ -1,6 +1,6 @@
+import streamlit as st
 
 from email import message
-import streamlit as st
 from send_email import send_email
 
 st.set_page_config(page_title="Contact Me",

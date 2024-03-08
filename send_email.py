@@ -1,9 +1,10 @@
 import streamlit as st
 import smtplib
 import ssl
+import config
+
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import config
 
 
 def send_email(user_name, user_email, message):
