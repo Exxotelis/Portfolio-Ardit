@@ -5,10 +5,9 @@ import ssl
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
 
 def send_email(user_name, user_email, message):
+    load_dotenv()
 
     host = "smtp.gmail.com"
     port = 465
