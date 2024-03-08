@@ -1,7 +1,7 @@
 import streamlit as st
 import smtplib
 import ssl
-import config
+# import config
 
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -9,10 +9,10 @@ from email.mime.text import MIMEText
 
 def send_email(user_name, user_email, message):
 
-    host = config.HOST
-    port = config.PORT
-    username = config.USER
-    password = config.PASS
+    host = st.secrets.HOST
+    port = st.secrets.PORT
+    username = st.secrets.USER
+    password = st.secrets.PASS
 
     context = ssl.create_default_context()
     receiver = "exxotelis@gmail.com"
