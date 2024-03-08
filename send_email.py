@@ -9,10 +9,10 @@ from email.mime.text import MIMEText
 
 def send_email(user_name, user_email, message):
 
-    host = st.secrets["HOST"]
-    port = st.secrets["PORT"]
-    username = st.secrets["USER"]
-    password = st.secrets["PASS"]
+    host = st.secrets["hostname"]
+    port = st.secrets["hostport"]
+    username = st.secrets["username"]
+    password = st.secrets["password"]
 
     context = ssl.create_default_context()
     receiver = "exxotelis@gmail.com"
