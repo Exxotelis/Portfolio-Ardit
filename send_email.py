@@ -35,4 +35,4 @@ def send_email(user_name, user_email, message):
             server.sendmail(username, receiver, email_message.as_string())
             print("Email sent successfully!")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred while sending the email: {e}")
