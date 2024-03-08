@@ -3,14 +3,15 @@ import smtplib
 import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import config
 
 
 def send_email(user_name, user_email, message):
 
-    host = "smtp.gmail.com"
-    port = 465
-    username = "exxotelis@gmail.com"
-    password = st.secrets["PASSWORD"]
+    host = config.HOST
+    port = config.PORT
+    username = config.USER
+    password = config.PASS
 
     context = ssl.create_default_context()
     receiver = "exxotelis@gmail.com"

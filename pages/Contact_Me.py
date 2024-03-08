@@ -1,7 +1,7 @@
 
 from email import message
 import streamlit as st
-from test import send_email
+from send_email import send_email
 
 st.set_page_config(page_title="Contact Me",
                    page_icon="images/favicon.png", layout="centered")
