@@ -1,11 +1,8 @@
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import streamlit as st
 import smtplib
 import ssl
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 def send_email(user_name, user_email, message):
@@ -13,7 +10,7 @@ def send_email(user_name, user_email, message):
     host = "smtp.gmail.com"
     port = 465
     username = "exxotelis@gmail.com"
-    password = os.environ.get("PASSWORD")
+    password = st.secrets["PASSWORD"]
 
     context = ssl.create_default_context()
     receiver = "exxotelis@gmail.com"
@@ -37,6 +34,3 @@ def send_email(user_name, user_email, message):
             print("Email sent successfully!")
     except Exception as e:
         print(f"An error occurred while sending the email: {e}")
-
-
-# Compare this snippet from Home.py:
